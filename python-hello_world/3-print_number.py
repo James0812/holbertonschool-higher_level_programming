@@ -1,3 +1,8 @@
 #!/usr/bin/python3
-number = -98
-print(f"{number} Battery street")
+# positif
+number_pos = 333
+print(f"{number_pos} Battery street")
+
+# négatif
+number_neg = -98
+print(f"{number_neg} Battery street")
