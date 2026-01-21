@@ -1,4 +1,4 @@
->>> matrix_divided = __import__('matrix_divided_5').matrix_divided
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 >>> # Test normal avec entiers
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
