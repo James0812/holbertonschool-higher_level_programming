@@ -1,0 +1,50 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test avec points, deux points et point d'interrogation
+>>> text_indentation("Hello. How are you? I am fine: thanks.")
+Hello.
+
+How are you?
+
+I am fine:
+
+thanks.
+
+# Test avec espaces avant et après les signes de ponctuation
+>>> text_indentation("  This is a test.  Another test? Yes: indeed.  ")
+This is a test.
+
+Another test?
+
+Yes:
+
+indeed.
+
+# Test avec texte sans ponctuation
+>>> text_indentation("Just some text without punctuation")
+Just some text without punctuation
+
+# Test avec chaîne vide
+>>> text_indentation("")
+# rien ne doit être affiché
+
+# Test avec texte commençant par ponctuation
+>>> text_indentation(".Leading with a dot. And more?")
+.
+
+Leading with a dot.
+
+And more?
+
+# Test erreur TypeError
+>>> try:
+...     text_indentation(123)
+... except Exception as e:
+...     print(e)
+text must be a string
+
+>>> try:
+...     text_indentation(None)
+... except Exception as e:
+...     print(e)
+text must be a string
