@@ -15,19 +15,17 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Liste des caractères après lesquels on met 2 nouvelles lignes
     separators = ".?:"
     start = 0
 
     for i, char in enumerate(text):
         if char in separators:
-            # Découpe la partie jusqu'au séparateur inclus
             line = text[start:i + 1].strip()
             print(line)
-            print()  # seconde ligne vide
-            start = i + 1  # début de la prochaine portion
+            print()  # la deuxième ligne vide
+            start = i + 1
 
-    # Imprimer le reste du texte s'il y en a
     remaining = text[start:].strip()
     if remaining:
-        print(remaining)
+        # Ici on utilise 'end=""' pour ne pas ajouter un '\n' final supplémentaire
+        print(remaining, end="")
