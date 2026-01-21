@@ -1,4 +1,4 @@
->>> from 3-say_my_name import say_my_name
+>>> from say_my_name import say_my_name
 >>> say_my_name("John", "Smith")
 My name is John Smith
 >>> say_my_name("Walter", "White")
@@ -16,6 +16,6 @@ first_name must be a string
 ...     print(e)
 last_name must be a string
 >>> say_my_name("", "")
-My name is  
+My name is
 >>> say_my_name("Single")
 My name is Single
