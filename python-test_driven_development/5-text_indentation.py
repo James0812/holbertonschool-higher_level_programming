@@ -22,10 +22,10 @@ def text_indentation(text):
         if char in separators:
             line = text[start:i + 1].strip()
             print(line)
-            print()  # la deuxième ligne vide
+            print()  # second line for separation
             start = i + 1
 
     remaining = text[start:].strip()
     if remaining:
-        # Ici on utilise 'end=""' pour ne pas ajouter un '\n' final supplémentaire
+        # end="" prevents adding an extra newline at the end
         print(remaining, end="")
