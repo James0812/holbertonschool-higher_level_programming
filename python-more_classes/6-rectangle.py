@@ -5,7 +5,7 @@
 class Rectangle:
     """Represents a rectangle."""
 
-    number_of_instances = 0  # public class attribute
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initializes the rectangle with a validated width and height."""
@@ -60,7 +60,8 @@ class Rectangle:
     def __repr__(self):
         """Returns a string representation of the rectangle."""
         return "Rectangle({}, {})".format(
-            self.__width, self.__height
+            self.__width,
+            self.__height
         )
 
     def __del__(self):
