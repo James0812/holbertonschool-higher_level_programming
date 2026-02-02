@@ -1,0 +1,110 @@
+"""
+Description : A function that returns the sum of two integers
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "Ahmed")
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+ValueError: age must be greater than 0
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", 0)
+Traceback (most recent call last):
+ValueError: distance must be greater than 0
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", "tutu")
+Traceback (most recent call last):
+TypeError: distance must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", "tutu")
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 5)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", 58)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 58)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("7atachay")
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg = BaseGeometry()
+>>> bg.nothing()
+Traceback (most recent call last):
+AttributeError: 'BaseGeometry' object has no attribute 'nothing'
+
+>>> bg = BaseGeometry()
+>>> nn.integer_validator()
+Traceback (most recent call last):
+NameError: name 'nn' is not defined
+
+>>> bg = BaseGeometry()
+>>> nn.integer_validator()
+Traceback (most recent call last):
+NameError: name 'nn' is not defined
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", 5.36)
+Traceback (most recent call last):
+TypeError: name must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", 5.36)
+Traceback (most recent call last):
+TypeError: distance must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 5.36)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", hhh)
+Traceback (most recent call last):
+NameError: name 'hhh' is not defined
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("distance", 0, 5)
+Traceback (most recent call last):
+TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", (4,))
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", [3])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {3, 4})
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+"""
