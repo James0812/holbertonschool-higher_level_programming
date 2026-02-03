@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """Abstract Shape class and concrete implementations"""
 
 from abc import ABC, abstractmethod
