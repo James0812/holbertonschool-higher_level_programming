@@ -1,7 +1,9 @@
-SELECT g.name AS genre,
-       COUNT(tsg.tv_show_id) AS number_of_shows
-FROM tv_show_genres tsg
-JOIN genres g ON tsg.genre_id = g.id
-GROUP BY g.name
-HAVING COUNT(tsg.tv_show_id) > 0
+-- List all genres from hbtn_0d_tvshows and dsiplay the umber of shows
+-- linked to each
+SELECT tv_genres.name AS genre, 
+COUNT(tv_show_genres.show_id) AS number_of_shows
+FROM tv_genres
+JOIN tv_show_genres
+ON tv_genres.id = tv_show_genres.genre_id
+GROUP BY tv_genres.name
 ORDER BY number_of_shows DESC;
