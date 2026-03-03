@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module lists all states from the specified MySQL database.
+Script that lists all states from a MySQL database ordered by id.
 """
 
 import MySQLdb
