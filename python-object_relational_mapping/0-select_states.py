@@ -1,26 +1,31 @@
 #!/usr/bin/python3
-""" ℹ️
-    lists all states from the database hbtn_0e_0_usa:
-"""
+'''
+Module that lists all states from a specified database.
+'''
+
+import MySQLdb
+import sys
 
 
 if __name__ == "__main__":
+    user = sys.argv[1]
+    pwd = sys.argv[2]
+    db_name = sys.argv[3]
 
-    import sys
-    import MySQLdb
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=user,
+        passwd=pwd,
+        db=db_name
+    )
 
-    user_name = sys.argv[1]
-    passw = sys.argv[2]
-    data_base = sys.argv[3]
+    cursor = db.cursor()
 
-    db = MySQLdb.connect(host="localhost", port=3306,
-                         user=user_name, passwd=passw, db=data_base)
-    cur = db.cursor()
-    cur.execute("""SELECT *
-                FROM
-                states""")
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
+    cursor.execute("SELECT id, name FROM states ORDER BY id ASC;")
+    rows = cursor.fetchall()
+
+    for id, name in rows:
+        print("({}, '{}')".format(id, name))
+    cursor.close()
     db.close()
