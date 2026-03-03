@@ -1,17 +1,23 @@
 #!/usr/bin/python3
-""" Python x MySQL : Listing data from a database using args """
-import MySQLdb
-from sys import argv
+"""Module for Selecting states"""
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost",
-                         port=3306,
-                         user=argv[1],
-                         passwd=argv[2],
-                         db=argv[3])
-    c = db.cursor()
-    c.execute("SELECT * from states ORDER BY states.id")
-    for state in c.fetchall():
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb
+
+    db = MySQLdb.connect(
+        user=argv[1],
+        password=argv[2],
+        database=argv[3]
+    )
+    cursor = db.cursor()
+
+    cursor.execute('SELECT * FROM states')
+
+    for state in cursor.fetchall():
         print(state)
-    c.close()
-    db.close()
+
+    if cursor:
+        cursor.close()
+    if db:
+        db.close()
