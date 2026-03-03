@@ -1,31 +1,17 @@
 #!/usr/bin/python3
-'''
-Module that lists all states from a specified database.
-'''
-
+""" Python x MySQL : Listing data from a database using args """
 import MySQLdb
-import sys
-
+from sys import argv
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    pwd = sys.argv[2]
-    db_name = sys.argv[3]
-
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=user,
-        passwd=pwd,
-        db=db_name
-    )
-
-    cursor = db.cursor()
-
-    cursor.execute("SELECT id, name FROM states ORDER BY id ASC;")
-    rows = cursor.fetchall()
-
-    for id, name in rows:
-        print("({}, '{}')".format(id, name))
-    cursor.close()
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3])
+    c = db.cursor()
+    c.execute("SELECT * from states ORDER BY states.id")
+    for state in c.fetchall():
+        print(state)
+    c.close()
     db.close()
