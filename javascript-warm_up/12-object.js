@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const numbers = [1, 5, 12, 4, 8]; // 12 reste dans le tableau initial
+const numbers = [1, 5, 12, 4, 8];
 
 for (let i = 0; i < numbers.length; i++) {
   if (numbers[i] === 12) {
