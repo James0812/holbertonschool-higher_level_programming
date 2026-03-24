@@ -7,7 +7,13 @@ import sqlite3
 app = Flask(__name__)
 
 
-# ✅ JSON
+# ✅ Route HOME (AJOUTÉE)
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+# ✅ Lire JSON
 def read_json():
     try:
         with open('products.json', 'r') as f:
@@ -16,7 +22,7 @@ def read_json():
         return []
 
 
-# ✅ CSV
+# ✅ Lire CSV
 def read_csv():
     data = []
     try:
@@ -31,7 +37,7 @@ def read_csv():
     return data
 
 
-# ✅ SQL (NOUVEAU)
+# ✅ Lire SQL
 def read_sql():
     data = []
     try:
@@ -55,6 +61,7 @@ def read_sql():
     return data
 
 
+# ✅ Route principale produits
 @app.route('/products')
 def products():
     source = request.args.get('source')
@@ -63,18 +70,18 @@ def products():
     data = []
     error = None
 
-    # ✅ choix source
+    # Choix de la source
     if source == 'json':
         data = read_json()
     elif source == 'csv':
         data = read_csv()
     elif source == 'sql':
-        data = read_sql()   # ✅ ajouté
+        data = read_sql()
     else:
         error = "Wrong source"
         return render_template('product_display.html', error=error)
 
-    # ✅ filtre id
+    # Filtrage par ID
     if product_id:
         try:
             product_id = int(product_id)
